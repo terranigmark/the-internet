@@ -22,14 +22,10 @@ class UsingUnittest(unittest.TestCase):
             add_button.click()
         
         sleep(3)
-        delete_button = driver.find_element_by_class_xpath("/html/body/div[2]/div/div/div/button[1]")
-        print(delete_button)
 
         for i in range(elements_removed):
-            if i == elements_removed - 1:
-                delete_button = driver.find_element_by_xpath("/html/body/div[2]/div/div/div/button")
-            else:
-                delete_button.click()
+            delete_button = driver.find_element_by_xpath("/html/body/div[2]/div/div/div/button[1]")
+            delete_button.click()
         
         sleep(3)
     
