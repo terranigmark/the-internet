@@ -15,6 +15,7 @@ class UsingUnittest(unittest.TestCase):
 
         elements_added = int(input('How many elements will you add?: '))
         elements_removed = int(input('How many elements will you remove?: '))
+        total_elements = elements_added - elements_removed
         add_button = driver.find_element_by_xpath('/html/body/div[2]/div/div/button')
         sleep(3)
         
@@ -26,6 +27,8 @@ class UsingUnittest(unittest.TestCase):
         for i in range(elements_removed):
             delete_button = driver.find_element_by_xpath("/html/body/div[2]/div/div/div/button[1]")
             delete_button.click()
+
+        print(f"There are {total_elements} elemetns on screen")
         
         sleep(3)
     
