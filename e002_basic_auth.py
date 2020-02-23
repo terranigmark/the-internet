@@ -11,6 +11,8 @@ class UsingUnittest(unittest.TestCase):
     def input_data(self):
         driver = self.driver
         driver.get("http://the-internet.herokuapp.com")
+        excercise = driver.find_element_by_link("Basic Auth")
+        excercise.click()
     
     def tearDown(self):
         print('Closing browser...')
