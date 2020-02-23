@@ -25,10 +25,17 @@ class UsingUnittest(unittest.TestCase):
         sleep(3)
 
         for i in range(elements_removed):
-            delete_button = driver.find_element_by_xpath("/html/body/div[2]/div/div/div/button[1]")
-            delete_button.click()
+            try:
+                delete_button = driver.find_element_by_xpath("/html/body/div[2]/div/div/div/button[1]")
+                delete_button.click()
+            except:
+                print("You're trying to delete more elements than the existent")
+                break
 
-        print(f"There are {total_elements} elemetns on screen")
+        if total_elements > 0:
+            print(f"There are {total_elements} elemetns on screen")
+        else:
+            print("There are 0 elements on screen")
         
         sleep(3)
     
