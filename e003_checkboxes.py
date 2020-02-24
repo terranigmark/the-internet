@@ -15,7 +15,6 @@ class UsingUnittest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Opera(executable_path = "./operadriver")
 
-    
     #Create browser instance and go to the excercise website
     def test_clicking_checkboxes(self):
         driver = self.driver
