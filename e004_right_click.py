@@ -17,11 +17,10 @@ class UsingUnittest(unittest.TestCase):
         right_click = ActionChains(driver)
         hot_spot = driver.find_element_by_id("hot-spot")
         right_click.context_click(hot_spot).perform()
-        
+        sleep(1)
 
-
-    def test_handling_alert(self):
-        pass
+        alert_obj = driver.switch_to.alert
+        alert_obj.accept()
 
     def tearDown(self):
         print("Browser is about to close...")
