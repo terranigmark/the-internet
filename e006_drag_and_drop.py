@@ -15,13 +15,13 @@ class UsingUnittest(unittest.TestCase):
         excercise.click()
 
         source_element = driver.find_element_by_id("column-a")
-        destination = driver.find_element_by_id("column-b")
-        drag = ActionChains(driver).drag_and_drop(source_element, destination)
+        destination = driver.find_element_by_xpath("/html/body/div[2]/div/div/div/div[2]")
+        action = ActionChains(driver)
+        drag = action.click_and_hold(source_element).move_to_element(destination).release(destination)
 
-        for i in range(3):
-            drag.perform()
-            print("Columns are switched")
-            sleep(1)
+        drag.perform()
+        print("Columns are switched")
+        sleep(1)
 
 
     def tearDown(self):
