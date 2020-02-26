@@ -10,13 +10,18 @@ class UsingUnittest(unittest.TestCase):
 
     def test_drag_and_drop(self):
         driver = self.driver
-        driver.get("http://the-internet.herokuapp.com/drag_and_drop")
+        driver.get("http://the-internet.herokuapp.com")
         excercise = driver.find_element_by_link_text("Drag and Drop")
         excercise.click()
 
         source_element = driver.find_element_by_id("column-a")
-        destination_element = driver.find_element_by_id("column-b")
-        drag = 
+        destination = driver.find_element_by_id("column-b")
+        drag = ActionChains(driver).drag_and_drop(source_element, destination)
+
+        for i in range(3):
+            drag.perform()
+            print("Columns are switched")
+            sleep(1)
 
 
     def tearDown(self):
