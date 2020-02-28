@@ -14,10 +14,19 @@ class UsingUnittest(unittest.TestCase):
         excercise = driver.find_element_by_link_text("Dropdown")
         excercise.click()
 
-        dropdown_menu = Select(driver.find_elements_by_id("dropdown"))
-        dropdown_menu.select_by_index(0)
+        dropdown_menu = Select(driver.find_element_by_id("dropdown"))
+        sleep(1)
+        dropdown_menu.select_by_value("1")
+        sleep(1)
+        dropdown_menu.select_by_value("2")
         sleep(1)
         dropdown_menu.select_by_index(1)
+        sleep(1)
+        dropdown_menu.select_by_index(2)
+        sleep(1)
+        dropdown_menu.select_by_visible_text("Option 1")
+        sleep(1)
+        dropdown_menu.select_by_visible_text("Option 2")
 
     def tearDown(self):
         print("Browser is about to close...")
