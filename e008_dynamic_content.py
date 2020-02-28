@@ -13,7 +13,20 @@ class UsingUnittest(unittest.TestCase):
         excercise = driver.find_element_by_link_text("Dynamic Content")
         excercise.click()
 
-        
+        pictures = []
+        total_pictures = 7
+        shown_pictures = 3
+        tries = 1
+
+        while len(pictures) < 7:            
+
+            for i in range(shown_pictures):
+                avatar = driver.find_element_by_xpath(f"/html/body/div[2]/div/div/div/div/div[{i + 1}]/div[1]/img")
+                avatar_route = avatar.get_attribute("src")
+                
+                if avatar_route not in pictures:
+                    pictures.append(avatar_route)
+                    print(pictures)                
 
     def tearDown(self):
         print("Browser is about to close...")
@@ -23,6 +36,8 @@ class UsingUnittest(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-""" /html/body/div[2]/div/div/div/div/div[1]/div[1]/img
+""" 
+/html/body/div[2]/div/div/div/div/div[1]/div[1]/img
 /html/body/div[2]/div/div/div/div/div[2]/div[1]/img
-/html/body/div[2]/div/div/div/div/div[3]/div[1]/img """
+/html/body/div[2]/div/div/div/div/div[3]/div[1]/img 
+"""
