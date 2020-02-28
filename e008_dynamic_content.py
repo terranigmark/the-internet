@@ -14,11 +14,11 @@ class UsingUnittest(unittest.TestCase):
         excercise.click()
 
         pictures = []
-        total_pictures = 7
+        total_pictures = 5
         shown_pictures = 3
         tries = 1
 
-        while len(pictures) < 7:            
+        while len(pictures) < total_pictures:
 
             for i in range(shown_pictures):
                 avatar = driver.find_element_by_xpath(f"/html/body/div[2]/div/div/div/div/div[{i + 1}]/div[1]/img")
@@ -27,6 +27,10 @@ class UsingUnittest(unittest.TestCase):
                 if avatar_route not in pictures:
                     pictures.append(avatar_route)
                     print(pictures)                
+                
+            tries += 1
+            print(tries)
+            driver.refresh()            
 
     def tearDown(self):
         print("Browser is about to close...")
