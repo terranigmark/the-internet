@@ -1,8 +1,6 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 from time import sleep
 
 class UsingUnittest(unittest.TestCase):
@@ -21,13 +19,13 @@ class UsingUnittest(unittest.TestCase):
         remove_checkbox_btn = driver.find_element_by_xpath('//*[@id="checkbox-example"]/button')
         remove_checkbox_btn.click()
 
-        try:
-            add_btn = WebDriverWait(driver, 30).until(
-                EC.presence_of_element_located((
-                    By.XPATH, '/html/body/div[2]/div/div[1]/form[1]/button')))
-            add_btn.click()
-        finally:
-            sleep(5)
+        enable_btn = driver.find_element_by_xpath('//*[@id="input-example"]/button')
+        enable_btn.click()
+        sleep(5)
+        textbox = driver.find_element_by_xpath('//*[@id="input-example"]/input')
+        textbox.send_keys("ola ke ase")
+        enable_btn.click()
+
 
     def tearDown(self):
         print('Browser is about to close...')
