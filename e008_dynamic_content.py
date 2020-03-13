@@ -15,13 +15,13 @@ class UsingUnittest(unittest.TestCase):
 
         pictures = []
         posts = []
-        total_pictures = 5
+        total_pictures = 7
         total_comments = 0
-        shown_pictures = 3
+        # shown_pictures = 3
         shown_comments = 3
         tries = 1
 
-        while len(pictures) < total_pictures and len(posts) < 30:
+        while len(pictures) < total_pictures and len(posts) < 1000:
 
             for i in range(shown_pictures):
                 avatar = driver.find_element_by_xpath(f"/html/body/div[2]/div/div/div/div/div[{i + 1}]/div[1]/img")
@@ -50,7 +50,7 @@ class UsingUnittest(unittest.TestCase):
             print(tries, total_pictures, total_comments)
             driver.refresh()            
 
-            print(posts[::-1])
+            print(posts[-1])
 
     def tearDown(self):
         print("Browser is about to close...")
@@ -60,6 +60,7 @@ class UsingUnittest(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
+#XPath structure for both pictures and comments
 """ 
 Pictures XPath structure
 /html/body/div[2]/div/div/div/div/div[1]/div[1]/img
