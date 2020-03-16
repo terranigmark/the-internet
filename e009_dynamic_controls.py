@@ -1,3 +1,10 @@
+###HANDLING DYNAMIC CONTROLS
+'''
+This script goes to http://the-internet.herokuapp.com/dropdown
+Focuses on the dropdown menu and select each option available
+This is done by different methods and can be done with control flows too
+'''
+
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
